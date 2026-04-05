@@ -1,59 +1,74 @@
-# CrudProductosAngular
+# CRUD de Productos con Angular para Programación III
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.14.
+Este repositorio contiene un proyecto base de Angular diseñado para los estudiantes de Programación III de la Tecnicatura en Análisis y Desarrollo de Software. El objetivo es aprender los fundamentos de Angular mediante la construcción de una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) para la gestión de productos.
 
-## Development server
+## Cómo Empezar / Guía de Uso
 
-To start a local development server, run:
+Este proyecto está diseñado para ser un punto de partida práctico para aprender Angular y el desarrollo de aplicaciones CRUD. Sigue los pasos a continuación para ponerlo en marcha y explorar su funcionamiento.
 
-```bash
-ng serve
-```
+### Requisitos Previos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Antes de comenzar, asegúrate de tener instalado lo siguiente en tu entorno de desarrollo:
 
-## Code scaffolding
+*   **Node.js:** Versión 18.x o superior (recomendado). Puedes descargarlo desde [nodejs.org](https://nodejs.org/).
+*   **npm (Node Package Manager) o Yarn:** Generalmente se instala junto con Node.js.
+*   **Angular CLI:** La interfaz de línea de comandos de Angular. Instálala globalmente ejecutando:
+    ```bash
+    npm install -g @angular/cli
+    ```
+*   **Conocimientos básicos:** De JavaScript/TypeScript, HTML y CSS.
+*   **Editor de Código:** Un editor como Visual Studio Code es altamente recomendado.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Instalación y Configuración
 
-```bash
-ng generate component component-name
-```
+Sigue estos pasos para obtener una copia del proyecto en tu máquina local y configurarlo:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [URL_DEL_REPOSITORIO]
+    ```
+    *(Reemplaza `[URL_DEL_REPOSITORIO]` con la URL real de tu repositorio)*
 
-```bash
-ng generate --help
-```
+2.  **Navegar al directorio del proyecto:**
+    ```bash
+    cd crud_productos_angular
+    ```
 
-## Building
+3.  **Instalar las dependencias:**
+    ```bash
+    npm install
+    ```
+    O si prefieres usar Yarn:
+    ```bash
+    yarn install
+    ```
 
-To build the project run:
+### Ejecución del Proyecto
 
-```bash
-ng build
-```
+Una vez que las dependencias estén instaladas, puedes iniciar la aplicación:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1.  **Iniciar el servidor de desarrollo:**
+    ```bash
+    ng serve
+    ```
 
-## Running unit tests
+2.  **Abrir la aplicación en tu navegador:**
+    Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en los archivos fuente.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Estructura Clave del Proyecto (para estudiantes)
 
-```bash
-ng test
-```
+Para facilitar el aprendizaje, aquí se destacan las partes más relevantes de la estructura del proyecto:
 
-## Running end-to-end tests
+*   `src/app/`: Contiene la lógica principal de la aplicación, organizada en módulos, componentes, servicios, etc.
+*   `src/app/services/`: Aquí se definen los servicios que encapsulan la lógica para la comunicación con el backend (API) y la gestión de datos.
+*   `src/app/pages/`: Directorio para componentes que representan vistas o páginas completas de la aplicación (ej. `lista-productos`, `form-producto`).
+*   `src/app/components/`: Directorio para componentes reutilizables más pequeños que se usan dentro de las páginas (ej. `sidebar`, `filtro-categorias`).
+*   `src/app/app.routes.ts`: Archivo donde se define la configuración de las rutas de navegación de la aplicación.
 
-For end-to-end (e2e) testing, run:
+## Recursos Adicionales
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+*   [Documentación Oficial de Angular](https://angular.dev/docs)
+*   [Tutoriales de Angular para principiantes](https://angular.dev/tutorials)
+*   [Documentación de TypeScript](https://www.typescriptlang.org/docs/)
+*   [PrimeNG](https://primeng.org/)
+*   [Tailwind CSS](https://tailwindcss.com/)
