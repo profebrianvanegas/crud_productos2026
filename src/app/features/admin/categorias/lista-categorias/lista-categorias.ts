@@ -4,7 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { SkeletonModule } from 'primeng/skeleton';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
-import { FiltroCategorias } from '../../../components/filtro-categorias/filtro-categorias';
+import { FiltroCategorias } from './filtro-categorias/filtro-categorias'; 
 
 export interface Categoria {
   Nombre: string;

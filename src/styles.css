@@ -1,23 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import "tailwindcss-primeui";
+
 @import "primeicons/primeicons.css";
-
-/* Forzar que el host del componente sidebar ocupe todo el alto disponible */
-app-sidebar {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-/* Forzar al contenedor interno de PrimeNG a estirarse */
-:host ::ng-deep .p-menu {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-}
-
-/* Esto asegura que la lista de items crezca pero deje espacio al footer (#end) */
-:host ::ng-deep .p-menu-list {
-    flex: 1 1 auto;
-}
