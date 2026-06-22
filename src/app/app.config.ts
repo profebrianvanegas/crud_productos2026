@@ -2,25 +2,26 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessC
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay, withIncrementalHydration } from '@angular/platform-browser';
+import MyPreset from '../theme/my-preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes), provideClientHydration(withEventReplay(), withIncrementalHydration()),
+    provideRouter(routes),
 
     provideAnimationsAsync(),
     providePrimeNG({
+      ripple: true,
       theme: {
-        preset: Aura,
+        preset: MyPreset,
         options: {
-          darkModeSelector: 'none' // Se adapta al modo claro/oscuro de Windows/Mac
-        }
-      }
+          darkModeSelector: 'none'
+        },
+      },
+
     })
   ]
 };

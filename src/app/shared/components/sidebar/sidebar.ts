@@ -19,7 +19,6 @@ export class Sidebar {
 
   ngOnInit() {
     this.menuItems = [
-      { label: 'Productos', icon: 'pi pi-box', routerLink: '/lista-productos' },
       { label: 'Categorías', icon: 'pi pi-eject', routerLink: '/lista-categorias' }
     ];
   }
