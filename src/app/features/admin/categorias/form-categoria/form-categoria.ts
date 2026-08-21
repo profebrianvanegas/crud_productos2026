@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Button } from "primeng/button";
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
@@ -6,13 +6,29 @@ import { Select } from 'primeng/select';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { RouterLink } from "@angular/router";
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-form-categoria',
-  imports: [Button, InputTextModule, TextareaModule, Select, IconFieldModule, InputIconModule, RouterLink],
+  imports: [Button, InputTextModule, TextareaModule, Select, IconFieldModule, InputIconModule, RouterLink,
+    ReactiveFormsModule, JsonPipe
+  ],
   templateUrl: './form-categoria.html',
   styles: ``,
 })
 export class FormCategoria {
+  private fb = inject(FormBuilder);
 
+  formCategoria = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    descripcion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(150)]],
+    categoria_padre: [''],
+  });
+
+  categoriasPadre: any = [
+    { name: 'Electronics', code: '1' },
+    { name: 'Smart Phones', code: '2' },
+    { name: 'Accessories', code: '3' },
+  ]
 }

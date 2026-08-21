@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { SkeletonModule } from 'primeng/skeleton';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { FiltroCategorias } from './filtro-categorias/filtro-categorias'; 
+import { CategoriasService } from '../categorias.service';
 
 export interface Categoria {
   Nombre: string;
@@ -19,6 +20,20 @@ export interface Categoria {
   styles: ``,
 })
 export class ListaCategorias {
+  private categoriasService = inject(CategoriasService);
+
+  ngOnInit() {
+    this.obtenerCategorias();
+  }
+  
+  obtenerCategorias() {
+    this.categoriasService.obtenerCategorias().subscribe(
+      (data) => {
+        console.log(data);
+      }
+    )
+  }
+
   categorias: Categoria[] =
     [
       {

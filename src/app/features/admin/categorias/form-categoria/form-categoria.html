@@ -7,49 +7,69 @@
                 <p class="text-slate-600">Agrega nuevas categorias de productos al inventario</p>
             </div>
             <div class="flex gap-4">
-                <p-button label="Cancelar" [raised]="true" severity="secondary" [routerLink]="['/admin/lista-productos']" />
+                <p-button label="Cancelar" [raised]="true" severity="secondary"
+                    [routerLink]="['/admin/lista-productos']" />
                 <p-button label="Guardar Categoria" [raised]="true" severity="primary" icon="pi pi-save" />
             </div>
         </div>
 
-        <div class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4">
-            <section class="col-span-2 bg-surface-100 p-6 rounded-xl border border-surface-300 shadow-sm">
-                <h3 class="text-lg font-bold mb-4">
-                    <span class="pi pi-info-circle text-blue-600 mr-1"></span>
-                    Información General
-                </h3>
+        <form [formGroup]="formCategoria">
 
-                <div class="grid grid-col-1 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Nombre de la Categoria</label>
-                        <input pInputText id="over_label" autocomplete="off" class="w-full" />
+            <div class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4">
+                <section class="col-span-2 bg-surface-100 p-6 rounded-xl border border-surface-300 shadow-sm">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="pi pi-info-circle text-blue-600 mr-1"></span>
+                        Información General
+                    </h3>
+
+                    <div class="grid grid-col-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Nombre de la Categoria</label>
+                            <input pInputText id="over_label" autocomplete="off" class="w-full" formControlName="nombre"
+                                [invalid]="formCategoria.get('nombre')?.invalid && formCategoria.get('nombre')?.touched">
+
+                            @if(formCategoria.get('nombre')?.invalid && formCategoria.get('nombre')?.touched){
+                            <small class="text-xs text-red-600">Nombre requerido de mínimo 4 caracteres</small>
+                            }
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Description</label>
+                            <textarea rows="5" cols="30" pTextarea fluid formControlName="descripcion"
+                                [invalid]="formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched"></textarea>
+
+                            @if(formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched){
+                            <small class="text-xs text-red-600">Descripción requerida de mínimo 4 caracteres</small>
+                            }
+                        </div>
+
+
+
+
                     </div>
+                </section>
 
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Description</label>
-                        <textarea rows="5" cols="30" pTextarea fluid></textarea>
+                <section class="bg-surface-100 p-6 rounded-xl border border-surface-300 shadow-sm">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="pi pi-sitemap text-blue-600 mr-1"></span>
+                        Organización
+                    </h3>
+
+                    <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Categoria Padre</label>
+                            <p-select [options]="categoriasPadre" optionLabel="name" optionValue="name"
+                                placeholder="Selecciona un categoria" class="w-full" appendTo="body"
+                                formControlName="categoria_padre" />
+
+
+                        </div>
                     </div>
-
-
-
-
-                </div>
-            </section>
-
-            <section class="bg-surface-100 p-6 rounded-xl border border-surface-300 shadow-sm">
-                <h3 class="text-lg font-bold mb-4">
-                    <span class="pi pi-sitemap text-blue-600 mr-1"></span>
-                    Organización
-                </h3>
-
-                <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Categoria Padre</label>
-                        <p-select [options]="" optionLabel="name" placeholder="Selecciona un categoria"
-                            class="w-full" appendTo="body" />
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>|
+        </form>
     </div>
 </div>
+
+<pre>Formulario es Invalido: {{formCategoria.get('nombre')?.invalid | json}}</pre>
+<pre>{{formCategoria.value | json}}</pre>
