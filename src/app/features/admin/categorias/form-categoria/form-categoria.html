@@ -9,7 +9,8 @@
             <div class="flex gap-4">
                 <p-button label="Cancelar" [raised]="true" severity="secondary"
                     [routerLink]="['/admin/lista-productos']" />
-                <p-button label="Guardar Categoria" [raised]="true" severity="primary" icon="pi pi-save" />
+                <p-button label="Guardar Categoria" [raised]="true" severity="primary" icon="pi pi-save"
+                    (onClick)="guardarCategoria()" />
             </div>
         </div>
 
@@ -33,7 +34,7 @@
                             }
                         </div>
 
-                        <div>
+                        <!--                         <div>
                             <label class="block text-sm font-medium text-gray-600 mb-1">Description</label>
                             <textarea rows="5" cols="30" pTextarea fluid formControlName="descripcion"
                                 [invalid]="formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched"></textarea>
@@ -41,7 +42,7 @@
                             @if(formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched){
                             <small class="text-xs text-red-600">Descripción requerida de mínimo 4 caracteres</small>
                             }
-                        </div>
+                        </div> -->
 
 
 

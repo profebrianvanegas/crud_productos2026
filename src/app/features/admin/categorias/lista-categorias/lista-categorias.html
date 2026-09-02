@@ -14,28 +14,25 @@
 
         <!-- TABLA -->
         <div class="card">
-            <p-table [value]="categorias" [tableStyle]="{ 'min-width': '30rem' }">
+           
+            <p-table [value]="categorias()" 
+            [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '30rem' }">
                 <ng-template #header>
                     <tr>
                         <th>Categoria</th>
-                        <th>Descripción</th>
-                        <th class="text-center!">Productos</th>
                         <th>Acciones</th>
                     </tr>
                 </ng-template>
                 <ng-template #body let-categoria>
                     <tr>
                         <td class="font-semibold">
-                            {{ categoria.Nombre }}
+                            {{ categoria.nombre }}
                         </td>
-                        <td>{{ categoria.Descripcion }}</td>
-                        <td class="text-center!">
-                            <p-tag [value]="categoria.Productos" severity="info" />
-                        </td>
+                        
                         <td>
                             <div class="flex flex-row">
                                 <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" [raised]="true"
-                                    severity="secondary" class="mr-4" />
+                                    severity="secondary" class="mr-4" (onClick)="editarCategoria(categoria)"/>
                                 <p-button icon="pi pi-trash" [rounded]="true" severity="danger" />
                             </div>
                         </td>
@@ -43,7 +40,7 @@
                 </ng-template>
                 <ng-template #footer>
                     <tr>
-                        <td colspan="6">En total son {{ categorias ? categorias.length : 0 }} categorias.</td>
+                        <td colspan="6">En total son {{ categorias() ? categorias().length : 0 }} categorias.</td>
                     </tr>
                 </ng-template>
             </p-table>
