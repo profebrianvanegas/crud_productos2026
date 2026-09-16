@@ -7,16 +7,15 @@
                 <p class="text-gray-600">Administra la organización de tus productos por categorias</p>
             </div>
             <p-button label="Añadir Categoria" [raised]="true" severity="primary" icon="pi pi-plus"
-                [routerLink]="['/admin/form-categoria']" />
+                (onClick)="nuevaCategoria()" />
         </div>
 
         <app-filtro-categorias></app-filtro-categorias>
 
         <!-- TABLA -->
         <div class="card">
-           
-            <p-table [value]="categorias()" 
-            [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '30rem' }">
+
+            <p-table [value]="categorias()" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '30rem' }">
                 <ng-template #header>
                     <tr>
                         <th>Categoria</th>
@@ -28,12 +27,13 @@
                         <td class="font-semibold">
                             {{ categoria.nombre }}
                         </td>
-                        
+
                         <td>
                             <div class="flex flex-row">
                                 <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" [raised]="true"
-                                    severity="secondary" class="mr-4" (onClick)="editarCategoria(categoria)"/>
-                                <p-button icon="pi pi-trash" [rounded]="true" severity="danger" />
+                                    severity="secondary" class="mr-4" (onClick)="editarCategoria(categoria)" />
+                                <p-button icon="pi pi-trash" [rounded]="true" severity="danger"
+                                    (onClick)="eliminarCategoria(categoria.id)" />
                             </div>
                         </td>
                     </tr>

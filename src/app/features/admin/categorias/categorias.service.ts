@@ -13,7 +13,7 @@ export class CategoriasService {
   private _categoria_editar = signal<Categoria | null>(null);
   categoria_editar = this._categoria_editar.asReadonly();
 
-  setCategoriaEditar(categoria: Categoria){
+  setCategoriaEditar(categoria: Categoria | null){
     this._categoria_editar.set(categoria);
   }
 
@@ -21,7 +21,19 @@ export class CategoriasService {
     return this.httpClient.get<any>(this.apiURL);
   }
 
+  obtenerCategoriasParaParents() {
+    return this.httpClient.get<any>(`${this.apiURL}/padre`);
+  }
+
   guardarCategoria(categoria: Categoria){
     return this.httpClient.post<any>(this.apiURL, categoria);
+  }
+
+  actualizarCategoria(categoria: Categoria, id_categoria: number){
+    return this.httpClient.put<any>(`${this.apiURL}/${id_categoria}`, categoria);
+  }
+
+  eliminarCategoria(id_categoria: number){
+    return this.httpClient.delete<any>(`${this.apiURL}/${id_categoria}`);
   }
 }

@@ -34,18 +34,6 @@
                             }
                         </div>
 
-                        <!--                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Description</label>
-                            <textarea rows="5" cols="30" pTextarea fluid formControlName="descripcion"
-                                [invalid]="formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched"></textarea>
-
-                            @if(formCategoria.get('descripcion')?.invalid && formCategoria.get('descripcion')?.touched){
-                            <small class="text-xs text-red-600">Descripción requerida de mínimo 4 caracteres</small>
-                            }
-                        </div> -->
-
-
-
 
                     </div>
                 </section>
@@ -59,9 +47,9 @@
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-600 mb-1">Categoria Padre</label>
-                            <p-select [options]="categoriasPadre" optionLabel="name" optionValue="name"
+                            <p-select [options]="categoriasPadre()" optionLabel="nombre" optionValue="id"
                                 placeholder="Selecciona un categoria" class="w-full" appendTo="body"
-                                formControlName="categoria_padre" />
+                                formControlName="parent_id" [showClear]="true" />
 
 
                         </div>
