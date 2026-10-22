@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Categoria } from '../../../core/models/categoria.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Categoria } from '../../../core/models/categoria.model';
 export class CategoriasService {
   private httpClient = inject(HttpClient);
 
-  private apiURL = 'http://127.0.0.1:8000/api/categorias';
+  private apiURL = `${environment.apiURL}categorias`;
 
   private _categoria_editar = signal<Categoria | null>(null);
   categoria_editar = this._categoria_editar.asReadonly();
